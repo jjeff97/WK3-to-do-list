@@ -50,4 +50,19 @@ router.delete('/delete/:id', (req, res) => {
         });
 })
 
+router.put('/description/:id', (req, res) => {
+    const taskObject = req.body;
+    const taskId = req.params.id;
+
+    const queryText = `UPDATE "tasks" SET "description"=$1 WHERE id=$1;`;
+
+    pool.query(queryText, [taskObject.description, taskId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('Error updating database: ', err);
+            res.sendStatus(500);
+        });
+});
 module.exports = router;

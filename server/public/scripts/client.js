@@ -24,11 +24,11 @@ function clickAddNewTask(event) {
 }
 function clickDeleteTask(event) {
     const buttonDataObject = $(this).data();
-    const taskID = buttonDataObject.id;
+    const taskId = buttonDataObject.id;
 
     deleteTask(taskId);
 }
-//server connecttions
+//server connections
 
 function getTasks() {
     $.ajax({

@@ -10,8 +10,38 @@
 
     <script src="vendors/jquery.js"></script>
     <script src="scripts/client.js"></script>
+
+    
 </head>
 <body>
+    <h1>My To Do List</h1>
+    <p><a href="https://www.npmjs.com/package/pg" target="_blank">PG</a></p>
     
+    <h2>Tasks</h2>
+
+    <div class="js-task-form-box">
+
+        <input 
+            class="js-task-input"
+            type="text"
+            name="description"
+            data-task-key="description"
+            placeholder="description"
+        />
+        <input 
+            class="js-task-input"
+            type="text"
+            name="due-date"
+            data-task-key="due-date"
+            placeholder="due-date"
+        />
+        <button class="js-add-task-btn">Add Task</button>
+        <button class="js-delete-task-btn">Delete Task</button>
+    </div>
+    <div class="box">
+        <ul class="js-tasks-list tasksList">
+
+        </ul>
+    </div>
 </body>
 </html>

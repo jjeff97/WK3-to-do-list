@@ -54,7 +54,7 @@ router.put('/description/:id', (req, res) => {
     const taskObject = req.body;
     const taskId = req.params.id;
 
-    const queryText = `UPDATE "tasks" SET "description"=$1 WHERE id=$1;`;
+    const queryText = `UPDATE "tasks" SET "description"=$1 WHERE id=$2;`;
 
     pool.query(queryText, [taskObject.description, taskId])
         .then((result) => {

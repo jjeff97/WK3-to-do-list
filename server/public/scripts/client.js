@@ -17,7 +17,7 @@ function clickAddNewTask(event) {
     const $taskInputs = $('.js-task-input');
 
     $taskInputs.each(function(inputElement){
-        const elementDataKey = $(this).data().taskkey;
+        const elementDataKey = $(this).data().taskKey;
         newTaskData[elementDataKey] = $(this).val();
     });
     postTask(newTaskData);
@@ -90,7 +90,7 @@ function render (tasksDataList) {
                 <div class="taskPill">
                     
                     <p>task: ${task.description}</p> 
-                    <p>done by: ${task.due-date}</p> 
+                    <p>done by: ${task.due_date}</p> 
                     <button
                         class="js-delete-task-btn"
                         data-id="${task.id}"

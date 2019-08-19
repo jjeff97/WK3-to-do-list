@@ -7,7 +7,7 @@ function init() {
     //event listeners
     $('.js-add-task-btn').on('click', clickAddNewTask);
     $('.js-delete-task-btn').on('click', clickDeleteTask);
-
+    $('.js-complete-task-btn').on('click', clickCompleteTask);
     getTasks();
 }
 //event handlers
@@ -23,10 +23,18 @@ function clickAddNewTask(event) {
     postTask(newTaskData);
 }
 function clickDeleteTask(event) {
+
     const buttonDataObject = $(this).data();
     const taskId = buttonDataObject.id;
 
     deleteTask(taskId);
+}
+
+function clickCompleteTask() {
+    $("#js-complete-task-btn").click(function(){
+        $("#js-complete-task-btn").css("color", "green");
+    
+      });
 }
 //server connections
 
@@ -73,6 +81,7 @@ function deleteTask(id) {
     });
 }
 
+
 //DOM/rendering
 
 function clearFields() {
@@ -97,6 +106,13 @@ function render (tasksDataList) {
                         data-something="WORD"
                     >
                         Delete
+                    </button>
+                    <button
+                        class="js-complete-task-btn"
+                        data-id="${task.id}"
+                        data-something="WORD"
+                    >
+                        Complete
                     </button>
                 </div>
             </li>

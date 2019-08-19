@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const newTask = req.body;
-    const queryText = `INSERT INTO "tasks" ("description", "due_date", )
+    const queryText = `INSERT INTO "tasks" ("description", "due_date" )
                         VALUES ($1, $2);`;
     
     pool.query(queryText, [newTask.description, newTask.dueDate,])

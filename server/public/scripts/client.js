@@ -6,8 +6,8 @@ function init() {
 
     //event listeners
     $('.js-add-task-btn').on('click', clickAddNewTask);
-    $('.js-delete-task-btn').on('click', clickDeleteTask);
-    $('.js-complete-task-btn').on('click', clickCompleteTask);
+    $('.js-tasks-list').on('click','.js-delete-task-btn', clickDeleteTask);
+    $('.js-tasks-list').on('click', '.js-complete-task-btn', clickCompleteTask);
     getTasks();
 }
 //event handlers
@@ -24,7 +24,7 @@ function clickAddNewTask(event) {
 }
 function clickDeleteTask(event) {
 
-    const buttonDataObject = $(this).data();
+    const buttonDataObject = $(this).data().id;
     const taskId = buttonDataObject.id;
 
     deleteTask(taskId);
@@ -96,9 +96,8 @@ function render (tasksDataList) {
         $tasksList.append(`
             <li>
                 <div class="taskPill">
-                    
                     <p>task: ${task.description}</p> 
-                    <p>done by: ${task.due_date}</p> 
+                    <p>done by: ${task.dueDate}</p> 
                     <button
                         class="js-delete-task-btn"
                         data-id="${task.id}"

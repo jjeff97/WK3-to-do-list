@@ -30,11 +30,10 @@ function clickDeleteTask(event) {
     deleteTask(taskId);
 }
 
-function clickCompleteTask() {
-    $("#js-complete-task-btn").click(function(){
-        $("#js-complete-task-btn").css("color", "green");
-    
-      });
+function clickCompleteTask(event) {
+    $('.js-complete-task-btn').click(function () {
+        $('p').css('color', 'green');
+    });
 }
 //server connections
 
